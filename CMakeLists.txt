@@ -11,9 +11,9 @@ file(GLOB APP_SOURCES "${SRC_DIR}/*.cpp")
 # --- Dependencies ---
 
 # 1. GLAD (Bundled with the template)
-# We build GLAD from the source files included in the libs/ directory.
-add_library(glad STATIC "${CMAKE_SOURCE_DIR}/libs/glad/src/glad.c")
-target_include_directories(glad PUBLIC "${CMAKE_SOURCE_DIR}/libs/glad/include")
+# We build GLAD from the source files included in the lib/ directory.
+add_library(glad STATIC "${CMAKE_SOURCE_DIR}/lib/glad/src/glad.c")
+target_include_directories(glad PUBLIC "${CMAKE_SOURCE_DIR}/lib/glad/include")
 
 # 2. OpenGL (Found on the system)
 find_package(OpenGL REQUIRED)
@@ -46,7 +46,7 @@ add_executable(${PROJECT_NAME} ${APP_SOURCES})
 
 target_include_directories(${PROJECT_NAME} PRIVATE
     "${SRC_DIR}"
-    "${CMAKE_SOURCE_DIR}/libs/glad/include"
+    "${CMAKE_SOURCE_DIR}/lib/glad/include"
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
